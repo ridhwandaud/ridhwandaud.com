@@ -1,9 +1,1 @@
-/app/komik
-/app/node_modules
-/bower_components
-/app/bower_components
-/node_modules
-
-.hidden
-*.ai
-ridhwan-website.png
+bower_components

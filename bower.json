@@ -1,0 +1,16 @@
+{
+  "name": "ridhwandaud.com",
+  "homepage": "https://github.com/ridhwandaud/ridhwandaud.com",
+  "authors": [
+    "ridhwan <muhammadridhwandaud@gmail.com>"
+  ],
+  "description": "portfolio for ridhwandaud",
+  "main": "index.html",
+  "keywords": [
+    "portfolio"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
