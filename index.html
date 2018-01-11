@@ -53,23 +53,38 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      function waitForBridge() {
-      
-       //the react native postMessage has only 1 parameter
-       //while the default one has 2, so check the signature
-       //of the function
-       
-       if (window.postMessage.length !== 1){
-         
-         setTimeout(waitForBridge, 200);
-       }
-       else {
-         
-         window.postMessage('abc');
-       }
-    }
-    
-    window.onload = waitForBridge;
+      function awaitPostMessage() {
+        var isReactNativePostMessageReady = !!window.originalPostMessage;
+        var queue = [];
+        var currentPostMessageFn = function store(message) {
+          if (queue.length > 100) queue.shift();
+          queue.push(message);
+        };
+        if (!isReactNativePostMessageReady) {
+          var originalPostMessage = window.postMessage;
+          Object.defineProperty(window, 'postMessage', {
+            configurable: true,
+            enumerable: true,
+            get: function () {
+              return currentPostMessageFn;
+            },
+            set: function (fn) {
+              currentPostMessageFn = fn;
+              isReactNativePostMessageReady = true;
+              setTimeout(sendQueue, 0);
+            }
+          });
+          window.postMessage.toString = function () {
+            return String(originalPostMessage);
+          };
+        }
+
+        function sendQueue() {
+          while (queue.length > 0) window.postMessage(queue.shift());
+        }
+      }
+      awaitPostMessage();
+      window.postMessage('Once :) ');
     </script>
 
   </body>
