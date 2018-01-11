@@ -53,39 +53,23 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'UA-86972819-1');
-
-      function awaitPostMessage() {
-         let isReactNativePostMessageReady = !!window.originalPostMessage;
-         const queue = [];
-         let currentPostMessageFn = function store(message) {
-           if (queue.length > 100) queue.shift();
-           queue.push(message);
-         };
-         if (!isReactNativePostMessageReady) {
-           // const originalPostMessage = window.postMessage;
-           Object.defineProperty(window, 'postMessage', {
-             configurable: true,
-             enumerable: true,
-             get() {
-               return currentPostMessageFn;
-             },
-             set(fn) {
-               currentPostMessageFn = fn;
-               isReactNativePostMessageReady = true;
-               setTimeout(sendQueue, 0);
-             }
-           });
-         }
-
-         function sendQueue() {
-           while (queue.length > 0) window.postMessage(queue.shift());
-         }
+      function waitForBridge() {
+      
+       //the react native postMessage has only 1 parameter
+       //while the default one has 2, so check the signature
+       //of the function
+       
+       if (window.postMessage.length !== 1){
+         
+         setTimeout(waitForBridge, 200);
        }
-
-
-     awaitPostMessage(); 
-     window.postMessage("paid");
+       else {
+         
+         window.postMessage('abc');
+       }
+    }
+    
+    window.onload = waitForBridge;
     </script>
 
   </body>
