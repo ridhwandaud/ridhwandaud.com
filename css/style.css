@@ -1,4 +1,91 @@
 body{ 
-	padding-top: 100px;
-	font-family: 'Lato';
+	font-family: 'Inter-UI';
 }
+
+
+@font-face{
+    font-family: "Inter-UI-Bold";
+    src: url('../font/Inter-UI-Bold.ttf');
+}
+
+@font-face{
+    font-family: "Inter-UI";
+    src: url('../font/Inter-UI-Regular.ttf');
+}
+.navbar-brand{
+	height: 80px;
+}
+
+.black > a {
+	color: #000;
+}
+
+.btn{
+	border-radius: 30px;
+}
+
+.btn-primary{
+    background-color: #4C5167;
+    border-color: #4C5167;
+}
+
+.btn-contact{
+	margin-top: 20px;
+}
+
+.secondary{
+	background-color: #FAFAFA;
+}
+
+section{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	margin-bottom: 50px;
+}
+
+.content{
+	padding: 50px 0px;
+}
+
+p.title {
+	font-size: 24px;
+	font-family: 'Inter-UI-Bold';
+}
+
+p.title-card {
+	padding-top: 30px;
+	font-size: 18px;
+	font-family: 'Inter-UI-Bold';
+}
+
+p.subtitle{
+	font-size: 18px;
+	margin-bottom: 50px;	
+}
+
+.card{
+	background-color: #ffffff;
+	padding: 30px 20px;
+	border-radius: 2px;
+}
+
+.card > img {
+	width: 100px;
+}
+
+.card-shadow {
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+@media only screen and (max-width: 767px) {
+    .card {
+        margin-top: 30px;
+    }
+
+    .welcome{
+    	text-align: center;
+    }
+}
+
+
