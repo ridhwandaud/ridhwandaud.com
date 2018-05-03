@@ -59,6 +59,10 @@ section.last {
 	padding-bottom: 0px;
 }
 
+section.end {
+	margin-bottom: 0px;
+}
+
 .content{
 	padding: 50px 0px;
 }
@@ -89,9 +93,18 @@ p.subtitle{
 	width: 100px;
 }
 
+.card.padded{
+	margin: 0px 30px;
+}
+
 .card-shadow {
 	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 	transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+img.image-pricing{
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 i{
@@ -99,9 +112,11 @@ i{
 }
 
 .footer{ 
-	margin-top: 20px;
 	background-color: #24292e;
 	color: #ffffff;
+}
+p > span {
+	font-family: 'Inter-UI-Bold';
 }
 
 .copyright{
