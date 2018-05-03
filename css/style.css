@@ -16,6 +16,14 @@ body{
 	height: 80px;
 }
 
+.navbar-toggle{
+	background-color: #4c5066;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: white;
+}
+
 .black > a {
 	color: #000;
 }
